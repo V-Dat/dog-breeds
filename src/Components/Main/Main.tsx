@@ -9,7 +9,6 @@ import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import { CircularProgress } from "@mui/material";
 
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Image from "../Image/Image";
 import { capitalizeFirstLetter } from "src/Utils/Utils";
@@ -17,6 +16,7 @@ import { capitalizeFirstLetter } from "src/Utils/Utils";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import IconCommon from "../IconCommon/IconCommon";
+import Options from "../Options/Options";
 
 interface mainProps {
   children?: any;
@@ -29,6 +29,7 @@ function Main(props: mainProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [openSlider, setOpenSlider] = useState(false);
   const [currentIndexImage, setCurrentIndexImage] = useState<number>(0);
+  const [currentVarient, setCurrentVariant] = useState<string>("woven");
 
   useEffect(() => {
     async function doGetRequest() {
@@ -73,18 +74,64 @@ function Main(props: mainProps) {
       return (prev = previous);
     });
   };
+
+  const handleChangeOption = (currentVarient: string) => {
+    setCurrentVariant(currentVarient);
+  };
+
   return (
     <div className="Main-root Main">
       <Header />
+      <Options
+        handleChangeOption={handleChangeOption}
+        currentVarient={currentVarient}
+      />
 
-      <ImageList gap={16} variant="woven">
-        {isLoading && <CircularProgress />}
-        {listImage.map((url: string) => (
-          <ImageListItem key={url}>
-            <Image url={url} handleClickOnImage={handleClickOnImage} />
-          </ImageListItem>
-        ))}
-      </ImageList>
+      {currentVarient === "woven" ? (
+        <ImageList variant="woven" cols={3} gap={8}>
+          {isLoading && <CircularProgress />}
+
+          {listImage.map((url: string) => (
+            <ImageListItem key={url}>
+              <Image url={url} handleClickOnImage={handleClickOnImage} />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      ) : null}
+
+      {currentVarient === "masonry" ? (
+        <ImageList variant="masonry" cols={3} gap={8}>
+          {isLoading && <CircularProgress />}
+
+          {listImage.map((url: string) => (
+            <ImageListItem key={url}>
+              <Image url={url} handleClickOnImage={handleClickOnImage} />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      ) : null}
+
+      {currentVarient === "quilted" ? (
+        <ImageList variant="quilted" cols={3} gap={8}>
+          {isLoading && <CircularProgress />}
+
+          {listImage.map((url: string) => (
+            <ImageListItem key={url}>
+              <Image url={url} handleClickOnImage={handleClickOnImage} />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      ) : (
+        <ImageList variant="standard" cols={3} gap={8}>
+          {isLoading && <CircularProgress />}
+
+          {listImage.map((url: string) => (
+            <ImageListItem key={url}>
+              <Image url={url} handleClickOnImage={handleClickOnImage} />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      )}
 
       <ScrollToTop />
 
