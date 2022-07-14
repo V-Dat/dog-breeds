@@ -1,0 +1,19 @@
+.ScrollToTop-root {
+  position: fixed;
+  cursor: pointer;
+
+  bottom: 4rem;
+  right: 4rem;
+  font-size: 3rem;
+  background-color: rgb(188, 199, 199);
+  width: 4rem;
+  border-radius: 15%;
+  color: azure;
+  z-index: 1000;
+
+  &:hover {
+    transition: 0.4s;
+    background: linear-gradient(315deg, #1e88e5 0%, #f06292 100%);
+    transform: scale(1.2);
+  }
+}

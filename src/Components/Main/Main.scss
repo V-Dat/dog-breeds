@@ -1,0 +1,68 @@
+.Main-root {
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 140px);
+  width: 80%;
+  .MuiImageList-root {
+    overflow-y: hidden;
+    margin-top: 4rem;
+  }
+}
+
+.slider-image {
+  .MuiBox-root {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 75%;
+    background-color: rgba($color: #ccc, $alpha: 1);
+    padding: 3rem;
+
+    .dog-breed {
+      text-align: center;
+      border: none;
+      background-color: rgba($color: #ccc, $alpha: 1);
+    }
+    img {
+      margin-top: 30px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .arrow-left,
+    .arrow-right {
+      svg {
+        top: 50%;
+        right: 1rem;
+        position: absolute;
+        width: 5rem;
+        height: 5rem;
+        padding: 1rem;
+        &:hover {
+          cursor: pointer;
+          background-color: rgb(192, 137, 137);
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .arrow-left {
+      svg {
+        right: 1rem;
+      }
+    }
+
+    .arrow-right {
+      svg {
+        top: 50%;
+        left: 1rem;
+      }
+    }
+  }
+}
