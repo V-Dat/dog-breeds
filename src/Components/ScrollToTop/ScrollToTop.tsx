@@ -15,7 +15,7 @@ function ScrollToTop() {
   };
 
   const handleScrollToTop = () => {
-    scrollToTop()
+    scrollToTop();
   };
 
   window.addEventListener("scroll", toggleVisible);

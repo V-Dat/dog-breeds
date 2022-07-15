@@ -1,10 +1,10 @@
-import React from "react";
+import "./NavLogo.scss";
 
 function NavLogo() {
   return (
     <div className="NavLogo-root navLogo">
       <div className="navLogo__image">
-        <a className="no-border" href="/dog-api/">
+        <a className="no-border" href="/">
           <img
             src="https://dog.ceo/img/dog-api-logo.svg"
             className="logo"

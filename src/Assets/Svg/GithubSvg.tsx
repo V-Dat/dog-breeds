@@ -3,7 +3,7 @@ import React from "react";
 function GithubSvg() {
   return (
     <a
-      href="https://github.com/completejavascript/lazy-loading-image-demo"
+      href="https://github.com/V-Dat/dog-breeds"
       className="github-corner"
       aria-label="View source on Github"
     >

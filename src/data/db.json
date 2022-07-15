@@ -1,0 +1,12 @@
+{
+  "videos": [
+    "/Assets/Videos/v1.mp4"
+  ],
+  "image": [
+    "/Assets/Images/1.jpg",
+    "/Assets/Images/2.jpg",
+    "/Assets/Images/3.jpg",
+    "/Assets/Images/4.jpg",
+    "/Assets/Images/5.jpg"
+  ]
+}
