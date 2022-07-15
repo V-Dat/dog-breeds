@@ -3,6 +3,7 @@ import axios from "axios";
 import NavLogo from "../Navbar/NavLogo";
 import { Layout, Menu, Spin } from "antd";
 import { useEffect, useState } from "react";
+import { handleCapitalizeFirstLetter } from "src/Utils/Utils";
 const { Sider } = Layout;
 
 interface LayoutCommonProps {
@@ -41,7 +42,7 @@ function SiderCommon(props: LayoutCommonProps) {
         defaultSelectedKeys={["4"]}
         items={breeds.map((item: string) => ({
           key: item,
-          label: item,
+          label: handleCapitalizeFirstLetter(item),
         }))}
       />
     </Sider>

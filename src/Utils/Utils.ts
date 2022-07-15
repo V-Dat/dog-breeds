@@ -15,3 +15,7 @@ export const shuffledArr = (array: any[]) => {
     .sort((a, b) => a.sort - b.sort)
     .map((a) => a.value);
 };
+
+export function handleCapitalizeFirstLetter(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
