@@ -1,5 +1,15 @@
+@import "src/scss/mixins.scss";
+
 .Header-root {
   height: 12rem;
-  width: 100%;
   margin: auto 3rem;
+
+  @include tablet {
+    margin: auto 8rem;
+  }
+
+
+    @include mobile {
+    margin: auto 4rem;
+  }
 }

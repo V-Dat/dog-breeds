@@ -47,5 +47,18 @@ body {
 }
 
 .App-root {
-  overflow: hidden;
+  box-sizing: border-box;
 }
+
+//  scrollbarHorizontal
+::-webkit-scrollbar {
+  width: 6px !important;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px !important;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ccc !important;
+}
+
+

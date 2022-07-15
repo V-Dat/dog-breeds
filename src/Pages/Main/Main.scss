@@ -2,11 +2,10 @@
   margin: 1rem 2rem;
   display: flex;
   flex-direction: column;
-  width: 100%;
-
   .list-image {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
+    justify-content: center;
   }
 }
