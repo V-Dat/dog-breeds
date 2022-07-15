@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/dog-breeds/static/css/main.a417902c.css",
+    "main.css": "/dog-breeds/static/css/main.6f19b0aa.css",
     "main.js": "/dog-breeds/static/js/main.c498cd25.js",
     "static/js/787.ddcbd320.chunk.js": "/dog-breeds/static/js/787.ddcbd320.chunk.js",
     "index.html": "/dog-breeds/index.html",
-    "main.a417902c.css.map": "/dog-breeds/static/css/main.a417902c.css.map",
+    "main.6f19b0aa.css.map": "/dog-breeds/static/css/main.6f19b0aa.css.map",
     "main.c498cd25.js.map": "/dog-breeds/static/js/main.c498cd25.js.map",
     "787.ddcbd320.chunk.js.map": "/dog-breeds/static/js/787.ddcbd320.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a417902c.css",
+    "static/css/main.6f19b0aa.css",
     "static/js/main.c498cd25.js"
   ]
 }
