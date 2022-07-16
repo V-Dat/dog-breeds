@@ -7,7 +7,7 @@
 
 .button-collapsed {
   position: absolute;
-  z-index: 1001;
+  z-index: 1003;
   top: 3.5rem;
   left: 2rem;
   // width: 4rem;
@@ -20,7 +20,15 @@
 }
 
 .ant-layout-sider {
+  height: calc(100vh - 2.5rem);
+
   @include laptop {
     position: absolute;
+    z-index: 1002;
   }
+}
+
+// hide siderbar default
+.ant-layout-sider-zero-width-trigger.ant-layout-sider-zero-width-trigger-left {
+  display: none;
 }

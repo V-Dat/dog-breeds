@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 export function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -40,4 +42,28 @@ export const getPreviousIndex = (arr: string[], element: string) => {
   }
 
   return previousIndex;
+};
+
+export const useCheckWidth = () => {
+  const [currentWidth, setCurrentWidth] = useState(screen.width);
+  const isWidthLessThan1024 = currentWidth < 1024 ? true : false;
+  const isWidthLessThan1400 = currentWidth < 1400 ? true : false;
+  const isWidthLessThan480 = currentWidth < 480 ? true : false;
+  const isWidthLessThan768 = currentWidth < 768 ? true : false;
+
+  useEffect(() => {
+    function handleResize() {
+      setCurrentWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return {
+    currentWidth,
+    isWidthLessThan480,
+    isWidthLessThan768,
+    isWidthLessThan1024,
+    isWidthLessThan1400,
+  };
 };
