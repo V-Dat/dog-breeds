@@ -1,6 +1,10 @@
 import GithubSvg from "src/Assets/Svg/GithubSvg";
 import "./Header.scss";
-function Header() {
+interface HeaderProps {
+  children?: any;
+}
+function Header(props: HeaderProps) {
+  const { children } = props;
   return (
     <header className="Header-root">
       <h1>FIND DOG YOU LOVE</h1>
@@ -9,6 +13,7 @@ function Header() {
         loves Dogs.
       </p>
       <GithubSvg />
+      {children}
     </header>
   );
 }
