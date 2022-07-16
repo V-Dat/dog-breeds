@@ -1,6 +1,26 @@
+@import "src/scss/mixins.scss";
 
-.ant-layout-sider-zero-width-trigger {
-  top: 2.4rem;
-  left: 1rem;
+.ant-layout {
+  height: calc(100vh - 2.5rem);
+  overflow: auto;
+}
 
+.button-collapsed {
+  position: absolute;
+  z-index: 1001;
+  top: 3.5rem;
+  left: 2rem;
+  // width: 4rem;
+  // height: 4rem;
+  font-size: 2.6rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ant-layout-sider {
+  @include laptop {
+    position: absolute;
+  }
 }

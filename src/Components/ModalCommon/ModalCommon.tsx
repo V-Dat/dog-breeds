@@ -27,11 +27,11 @@ function ModalCommon(props: ModalCommonProps) {
     closable = true,
   } = props;
 
-  const handleOk = (e: React.MouseEvent<HTMLElement>) => {
+  const handleOk = () => {
     handleCloseModel();
   };
 
-  const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
+  const handleCancel = () => {
     handleCloseModel();
   };
 

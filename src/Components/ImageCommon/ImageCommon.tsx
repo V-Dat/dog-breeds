@@ -20,7 +20,13 @@ function ImageCommon(props: ImageCommonProps, imageRef: any) {
       className={`${className ? className : ""} ImageCommon-root`}
       onClick={(event: any) => handleClick(event, src)}
     >
-      <img src={src} width={width} ref={imageRef} style={style} />
+      {src.includes("mp4") ? (
+        <video width={width} ref={imageRef} style={style} controls>
+          <source src={src} type="video/mp4" />
+        </video>
+      ) : (
+        <img src={src} width={width} ref={imageRef} style={style} />
+      )}
     </div>
   );
 }

@@ -5,6 +5,7 @@ interface HeaderProps {
 }
 function Header(props: HeaderProps) {
   const { children } = props;
+
   return (
     <header className="Header-root">
       <h1>FIND DOG YOU LOVE</h1>

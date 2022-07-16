@@ -15,11 +15,11 @@ import Header from "../../Components/Header/Header";
 import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 
 import { Spin } from "antd";
-import Greeting from "src/Components/Greeting/Greeting";
 import ImageCommon from "src/Components/ImageCommon/ImageCommon";
 import ModalCommon from "src/Components/ModalCommon/ModalCommon";
 import ButtonCommon from "src/Components/ButtonCommon/ButtonCommon";
-import { getNextIndex, getPreviousIndex } from "src/Utils/Utils";
+import { getNextIndex, getPreviousIndex, shuffledArr } from "src/Utils/Utils";
+import data from "src/data/data.js";
 
 interface mainProps {
   children?: any;
@@ -33,7 +33,6 @@ function Main(props: mainProps) {
   const [isShowModel, setIsShowModel] = useState(false);
   const [currentSrc, setCurrentSrc] = useState("");
   const [rotation, setRotation] = useState(0);
-  const [pos, setPos] = useState({ x: 0, y: 0, scale: 1 });
   const [currentSize, setCurrentSize] = useState({});
   const imageRef = useRef<HTMLImageElement>();
 
@@ -43,13 +42,16 @@ function Main(props: mainProps) {
       setIsLoading(true);
 
       const res = await axios.get(`https://dog.ceo/api/breed/${params}/images`);
-      setListImage(res.data.message);
+      setListImage(shuffledArr(res.data.message));
 
       setIsLoading(false);
       controller.abort();
     }
     if (params !== "") {
       doGetRequest();
+    } else {
+      const listImage = shuffledArr([...data.image, ...data.videos]);
+      setListImage(listImage);
     }
   }, [params]);
 
@@ -107,37 +109,35 @@ function Main(props: mainProps) {
       <Header>
         {isShowModel && (
           <div className="button-feature">
-            <ButtonCommon handleClickButton={handleZoomIn}>
+            <ButtonCommon handleClick={handleZoomIn}>
               <ZoomInOutlined />
             </ButtonCommon>
 
-            <ButtonCommon handleClickButton={handleZoomOut}>
+            <ButtonCommon handleClick={handleZoomOut}>
               <ZoomOutOutlined />
             </ButtonCommon>
 
-            <ButtonCommon handleClickButton={handleClickPrevious}>
+            <ButtonCommon handleClick={handleClickPrevious}>
               <LeftOutlined />
             </ButtonCommon>
 
-            <ButtonCommon handleClickButton={handleClickNext}>
+            <ButtonCommon handleClick={handleClickNext}>
               <RightOutlined />
             </ButtonCommon>
-            <ButtonCommon handleClickButton={handleClickRoutateLeft}>
+            <ButtonCommon handleClick={handleClickRoutateLeft}>
               <RotateLeftOutlined />
             </ButtonCommon>
 
-            <ButtonCommon handleClickButton={handleClickRoutateRight}>
+            <ButtonCommon handleClick={handleClickRoutateRight}>
               <RotateRightOutlined />
             </ButtonCommon>
 
-            <ButtonCommon handleClickButton={handleCloseModel}>
+            <ButtonCommon handleClick={handleCloseModel}>
               <CloseOutlined />
             </ButtonCommon>
           </div>
         )}
       </Header>
-
-      {/* {params === "" && <Greeting />} */}
 
       {isLoading && params !== "" ? (
         <Spin spinning={isLoading} size="large" />
@@ -159,8 +159,6 @@ function Main(props: mainProps) {
       <ModalCommon
         className="preview-modal"
         isShowModel={isShowModel}
-        // width={"100%"}
-        // height={"400"}
         handleCloseModel={handleCloseModel}
         cancelButtonProps={{ style: { display: "none" } }}
         okButtonProps={{ style: { display: "none" } }}

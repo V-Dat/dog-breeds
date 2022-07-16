@@ -1,3 +1,5 @@
+@import "src/scss/mixins.scss";
+
 .Main-root {
   margin: 1rem 2rem;
   display: flex;
@@ -7,6 +9,17 @@
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
+    .ImageCommon-root {
+      img {
+        @include tablet {
+          width: 110px !important;
+        }
+
+        @include mobile {
+          width: 80px !important;
+        }
+      }
+    }
   }
 
   .button-feature {
@@ -19,19 +32,36 @@
     z-index: 1001;
     top: 0;
     left: 0;
+    height: 5rem;
   }
 }
 
 .preview-modal {
+  top: 5rem;
+  height: calc(100vh - 5rem);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
   .ant-modal-content {
     background-color: transparent;
     box-shadow: none;
+    display: flex;
+    align-items: center;
+    .ant-modal-body {
+      display: flex;
+      align-items: center;
+    }
   }
   .ImageCommon-root {
-    display: flex;
-    justify-content: center;
+    img {
+      width: 100%;
+    }
   }
   .ant-modal-footer {
     border: none;
+    display: none;
   }
 }
